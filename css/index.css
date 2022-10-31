@@ -1,0 +1,369 @@
+/* body init */
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    /* height: 2000px; */
+}
+h2 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #666;
+    font-size: 10px;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-index {
+    display: flex;
+    position: fixed;
+    top: 0;
+    /* 让固定定位的盒子居中显示，margin：0 auto；是无效的 */
+    /* 方法一：left: auto; */
+    /* 方法二：下面 */
+    left: 50%;
+    /* 兼容老版本的谷歌浏览器 */
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* 固定的盒子必须有宽度，因为他是和浏览器有关系的，和父盒子没有关系 */
+    width: 100%;
+    height: 44px;
+    /* background-color: pink; */
+    max-width: 540px;
+    min-width: 320px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-index div {
+    flex: 1;
+    height: 26px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    margin: 10px 5px;
+    /* 上下是都有边框，但是在有边框情况，又是c3盒模型，盒子做了自减，
+    所以实际内容区域变小，原本26px的行高，在24px的内容里装不下，
+    字体下边空白行间距溢出，所以看见字体偏下。传统盒模型就没有这个影响， */
+    line-height: 24px;
+}
+
+.search-index div::before {
+    content: "";
+    display: inline-block;
+    /* float: left; */
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+
+}
+
+.search-index a {
+    width: 44px;
+    height: 44px;
+    /* background-color: purple; */
+    color: #2eaae0;
+    font-size: 10px;
+    text-align: center;
+}
+
+.search-index a::before {
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    margin: 4px auto 2px;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+}
+
+/* 焦点图 */
+.focus {
+    /* 上面的模块是固定定位，所以下面的标准流盒子会挤上去，
+    给一个和上面盒子一样高的margin-top（padding-top） */
+    margin-top: 44px;
+}
+
+.focus img {
+    width: 100%;
+}
+
+/* local nav */
+.local-nav {
+    display: flex;
+    /* justify-content: space-between; */
+    height: 64px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 3px 4px;
+}
+
+.local-nav li {
+    flex: 1;
+    text-align: center;
+    /* background-color: pink;    */
+}
+
+.local-nav li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+}
+
+.local-nav-icon {
+    width: 32px;
+    height: 32px;
+    background-color: pink;
+    margin: 5px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+/* 直接只更改background-position */
+.local-nav li:nth-child(2) .local-nav-icon {
+    background-position: 0 -32px;
+}
+
+.local-nav li:nth-child(3) .local-nav-icon {
+    background-position: 0 -64px;
+}
+
+.local-nav li:nth-child(4) .local-nav-icon {
+    background-position: 0 -96px;
+}
+
+.local-nav li:nth-child(5) .local-nav-icon {
+    background-position: 0 -128px;
+}
+
+/* .local-nav li:nth-child(1) .local-nav-icon {    
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+.local-nav li:nth-child(2) .local-nav-icon {    
+    background: url(../images/localnav_bg.png) no-repeat 0 -32px;
+    background-size: 32px auto;
+}
+.local-nav li:nth-child(3) .local-nav-icon {    
+    background: url(../images/localnav_bg.png) no-repeat 0 -64px;
+    background-size: 32px auto;
+}
+.local-nav li:nth-child(4) .local-nav-icon {    
+    background: url(../images/localnav_bg.png) no-repeat 0 -96px;
+    background-size: 32px auto;
+}
+.local-nav li:nth-child(5) .local-nav-icon {    
+    background: url(../images/localnav_bg.png) no-repeat 0 -128px;
+    background-size: 32px auto;
+} */
+
+/* 主导航 */
+nav {
+    border-radius: 8px;
+    margin: 0 4px 3px;
+    overflow: hidden;
+    /* 不给高度，让内容撑开 */
+}
+
+.nav-common {
+    display: flex;
+    height: 88px;
+    background-color: pink;
+}
+
+.nav-common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #EA5a55, #fa994d);
+}
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+    background: -webkit-linear-gradient(left, #4b90ed, #53bced);
+}
+
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #34c2a9, #6cd559);
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nav-items a {
+    flex: 1;
+    /* 这里不能用align-items:center!!因为这个属性是让侧轴的盒子居中，
+    现在是让a里面的内容居中，不是让盒子a居中 */
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.nav-common .nav-items:first-child a {
+    /* border-bottom-width: 0; */
+    /* 去掉border是0 */
+    border: 0;
+    /* line-height: 88px; */
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav-items a:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+/* .nav-items:nth-child(-n+2) 选前面两个 */
+/* 去除最后一个 */
+.nav-items:not(:last-child) {
+    /* 加边框，线才会是白色，如果用margin，会露出背景色 */
+    border-right: 1px solid #fff;
+}
+
+/* 侧导航栏 */
+.subnav-entry {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 0 4px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.subnav-entry li {
+    /* 里面的子盒子可以写百分比，相对于父级 */
+    flex: 20%;
+}
+
+.subnav-entry li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subnav-entry-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+    /* background-color: pink; */
+    background: url(../images/subnav-bg.png) no-repeat;
+    background-size: 28px auto;
+}
+
+.subnav-entry li:nth-child(2) .subnav-entry-icon {
+    background-position: 0 -28px;
+}
+
+.subnav-entry li:nth-child(3) .subnav-entry-icon {
+    background-position: 0 -60px;
+}
+
+.subnav-entry li:nth-child(4) .subnav-entry-icon {
+    background-position: 0 -98px;
+}
+
+.subnav-entry li:nth-child(5) .subnav-entry-icon {
+    background-position: 0 -128px;
+}
+
+.subnav-entry li:nth-child(6) .subnav-entry-icon {
+    background-position: 4px -163px;
+}
+
+.subnav-entry li:nth-child(7) .subnav-entry-icon {
+    background-position: 0 -128px;
+}
+
+.subnav-entry li:nth-child(8) .subnav-entry-icon {
+    background-position: 0 -196px;
+}
+
+.subnav-entry li:nth-child(9) .subnav-entry-icon {
+    background-position: 0 -224px;
+}
+
+.subnav-entry li:nth-child(10) .subnav-entry-icon {
+    background-position: 0 -252px;
+}
+/* 销售模块 */
+.sales-box {
+    border-top: 1px solid #bbb;
+    background-color: #fff;
+    margin: 4px;
+}
+.sales-hd {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+.sales-hd h2 {
+    position: relative;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.sales-hd h2::after {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background: url(../images/hot.png) no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+.more {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 2px 20px 3px 10px;
+    background: -webkit-linear-gradient(left, #EA5a55, #fa994d);
+    border-radius: 10px;
+    color: #fff;
+}
+.more::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+.row {
+    display: flex;
+}
+.row a {
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+.row a img {
+    width: 100%;
+}
+.row a:nth-child(1) {
+    border-right: 1px solid #ccc;
+}
